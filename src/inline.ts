@@ -84,7 +84,7 @@ function initInline(bot, config) {
           let categoryFullId = [cache.config.categories[i].name +
           ': ' + cache.config.categories[i].subgroups[j].name];
           subKeys.push(categoryFullId);
-          
+
           // Create subcategory button events for start with parameter
           // Full category name to 64 Byte without special chars
           let startStr = '/start ' + JSON.stringify(categoryFullId)
@@ -99,7 +99,7 @@ function initInline(bot, config) {
             ctx.session.group = cache.config.categories[i].subgroups[j].group_id;
             ctx.session.groupCategory = cache.config.categories[i].subgroups[j].name;
           });
-          
+
           // Create subcategory button events
           bot.hears(categoryFullId, (ctx) => {
             ctx.session.mode = undefined;

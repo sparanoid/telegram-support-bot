@@ -109,7 +109,7 @@ function closeCommand(bot, ctx) {
     // eslint-disable-next-line new-cap
     Extra.HTML().notifications(false)
     );
-    middleware.msg(userid, 
+    middleware.msg(userid,
       `${cache.config.language.ticket} #T${ticketId.toString().padStart(6, '0')} ` +
       `${cache.config.language.closed}\n\n${cache.config.language.ticketClosed}`,
       Extra.HTML().notifications(false));

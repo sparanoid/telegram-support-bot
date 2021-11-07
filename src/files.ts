@@ -6,9 +6,9 @@ const {Extra} = require('telegraf');
 
 /**
  * Helper for private reply
- * @param type 
- * @param bot 
- * @param ctx 
+ * @param type
+ * @param bot
+ * @param ctx
  */
 function replyMarkup(ctx) {
   return {
@@ -115,7 +115,7 @@ function fileHandler(type, bot, ctx) {
                           'text': cache.config.language.replyPrivate,
                           'callback_data': ctx.from.id +
                           '---' + ctx.message.from.first_name + '---' + ctx.session.groupCategory +
-                          '---' + ticket.id 
+                          '---' + ticket.id
                         }
                       ],
                     ],
@@ -142,7 +142,7 @@ function fileHandler(type, bot, ctx) {
                           'text': cache.config.language.replyPrivate,
                           'callback_data': ctx.from.id +
                           '---' + ctx.message.from.first_name + '---' + ctx.session.groupCategory +
-                          '---' + ticket.id 
+                          '---' + ticket.id
                         }
                       ],
                     ],
@@ -168,7 +168,7 @@ function fileHandler(type, bot, ctx) {
                           'text': cache.config.language.replyPrivate,
                           'callback_data': ctx.from.id +
                           '---' + ctx.message.from.first_name + '---' + ctx.session.groupCategory +
-                          '---' + ticket.id 
+                          '---' + ticket.id
                         }
                       ],
                     ],
@@ -178,7 +178,7 @@ function fileHandler(type, bot, ctx) {
           break;
       }
       // Confirmation message
-      let message = cache.config.language.contactMessage + 
+      let message = cache.config.language.contactMessage +
         (cache.config.show_user_ticket ? cache.config.language.yourTicketId : '') + ' #T' +
         ticket.id.toString().padStart(6, '0');
       // if admin

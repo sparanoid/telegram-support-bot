@@ -71,11 +71,11 @@ bot.command('start', (ctx) => {
   if (ctx.chat.type == 'private') {
     middleware.reply(ctx, cache.config.language.startCommandText);
     if (cache.config.categories.length > 0)
-      setTimeout(() => middleware.reply(ctx, cache.config.language.services, inline.replyKeyboard(keys)), 500);    
+      setTimeout(() => middleware.reply(ctx, cache.config.language.services, inline.replyKeyboard(keys)), 500);
   } else middleware.reply(ctx, cache.config.language.prvChatOnly);
 });
 bot.command('id', (ctx) => middleware.reply(ctx, ctx.from.id + ' ' + ctx.chat.id));
-bot.command('faq', (ctx) => 
+bot.command('faq', (ctx) =>
 middleware.reply(ctx, cache.config.language.faqCommandText, Extra.HTML()));
 bot.command('help', (ctx) => middleware.reply(ctx, cache.config.language.helpCommandText, Extra.HTML()));
 bot.command('links', (ctx) => {
@@ -102,11 +102,11 @@ bot.command('links', (ctx) => {
 
 // Bot ons
 bot.on('callback_query', (ctx) => inline.callbackQuery(bot, ctx));
-bot.on('photo', (ctx) => middleware.downloadPhotoMiddleware(bot, ctx, () => 
+bot.on('photo', (ctx) => middleware.downloadPhotoMiddleware(bot, ctx, () =>
   files.fileHandler('photo', bot, ctx)));
-bot.on('video', (ctx) => middleware.downloadVideoMiddleware(bot, ctx, () => 
+bot.on('video', (ctx) => middleware.downloadVideoMiddleware(bot, ctx, () =>
   files.fileHandler('video', bot, ctx)));
-bot.on('document', (ctx) => middleware.downloadDocumentMiddleware(bot, ctx, () => 
+bot.on('document', (ctx) => middleware.downloadDocumentMiddleware(bot, ctx, () =>
   files.fileHandler('document', bot, ctx)));
 
 // Bot regex

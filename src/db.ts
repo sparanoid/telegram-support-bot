@@ -69,14 +69,14 @@ const add = function(userid, status, category) {
         `REPLACE INTO supportees (userid, status, category)` +
         `VALUES ('${userid}', '${status}', 'BANNED')`).run();
   }
-  return (msg.changes);    
+  return (msg.changes);
 };
 
 const open = function(callback, category) {
   let searchText = '';
   for (let i = 0; i < category.length; i++)
   {
-    if (i == 0) 
+    if (i == 0)
       searchText += `= '${category[i]}'`;
     else
       searchText +=  ` OR category = '${category[i]}'`;
@@ -85,8 +85,8 @@ const open = function(callback, category) {
   const searchDB = db.prepare(
       `select * from supportees where status = 'open' `+
       `and (category ${(category.length > 0 ? searchText : 'is NULL')})`).all();
-  
-  
+
+
   callback(searchDB);
 };
 

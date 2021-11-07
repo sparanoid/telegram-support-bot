@@ -44,7 +44,7 @@ const msg = function(id, msg, extra) {
   } else if (id.toString().indexOf('SIGNAL') > -1 && id != cache.config.staffchat_id) {
     // Signal message
     console.log('Signal message');
-    signal.message(id.split('SIGNAL')[1], msg); 
+    signal.message(id.split('SIGNAL')[1], msg);
   }
   else {
     cache.bot.telegram.sendMessage(id, msg, extra);

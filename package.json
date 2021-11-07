@@ -7,10 +7,10 @@
     "homepage": "https://bostrot.com",
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@github.com/bostrot/telegram-support-bot.git"
+        "url": "git+ssh://git@github.com/sparanoid/telegram-support-bot.git"
     },
     "bugs": {
-        "url": "https://github.com/bostrot/telegram-support-bot/issues"
+        "url": "https://github.com/sparanoid/telegram-support-bot/issues"
     },
     "main": "build/src/index.js",
     "scripts": {

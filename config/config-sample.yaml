@@ -7,8 +7,8 @@ spam_time: 5 * 60 * 1000 # time (in MS) in which user may send 5 messages
 allow_private: false # Allow / disallow option for staff to chat privately
 direct_reply: false # Set this to true to just forward staff users to a user chat when allow_private
 
-auto_close_tickets: true # Close tickets after answering
-anonymous_tickets: true # Include userid in tickets or not
+auto_close_tickets: false # Close tickets after answering
+anonymous_tickets: false # Include userid in tickets or not
 
 signal_enabled: false # Enable/disable signal
 signal_number: '+12345689' # Your signal number / account
@@ -17,6 +17,9 @@ web_server: false # Enable/disable web server
 web_server_port: 8080 # Port for web server
 web_server_ssl_cert: '../src/web/ssl.crt' # Path for SSL cert
 web_server_ssl_key: '../src/web/ssl.key' # Path for SSL key
+
+compact_reply: true # Only send reply message without `dear` and `regards` template.
+slient_mode: true # Avoid sending `contactMessage` when user sends a message
 
 dev_mode: true # Enable/disable dev mode
 
@@ -61,7 +64,7 @@ language:
     doesntHelp: "This does not help."
     automatedReplySent: "Automated reply was send to the user."
 
-# categories: 
+# categories:
 #  - name: "Category1"
 #    subgroups:
 #    - name: "Sub1"
@@ -71,7 +74,7 @@ language:
 #    - name: "Sub3"
 #      group_id: "-12345678910"
 #  - name: "Category2"
-#    subgroups: 
+#    subgroups:
 #    - name: "Sub4"
 #      group_id: "-12345678910"
 #    - name: "Sub5"
@@ -81,9 +84,6 @@ language:
 #  - name: "Category with no subcategories"
 #    group_id: "-12345678910"
 #  - name: "Admin Chat"
-#    group_id: "-12345678910" 
+#    group_id: "-12345678910"
 #  - name: "Contact"
 #    msg: "Check out our Website"
-
-    
-  

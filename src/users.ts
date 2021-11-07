@@ -20,7 +20,7 @@ function ticketMsg(ticket, message, anon = true, autoReplyInfo) {
           `<a href="${link}">` +
           `${middleware.escapeText(message.from.first_name)}</a> ${cache.config.language.language}: ` +
           `${message.from.language_code}\n\n` +
-          `${middleware.escapeText(message.text)}\n\n` + 
+          `${middleware.escapeText(message.text)}\n\n` +
           `<i>${autoReplyInfo}</i>`;
 }
 
@@ -69,16 +69,16 @@ function chat(ctx, bot, chat) {
   if (cache.ticketSent[cache.ticketID] === undefined) {
     // Get Ticket ID from DB
     db.getOpen(chat.id, ctx.session.groupCategory, function(ticket) {
-      
+
       if (!isAutoReply)
-        middleware.msg(chat.id, cache.config.language.contactMessage + 
+        middleware.msg(chat.id, cache.config.slient_mode ? '' : cache.config.language.contactMessage +
           (cache.config.show_user_ticket ? cache.config.language.yourTicketId  + ' #T' +
           ticket.id.toString().padStart(6, '0') : ''), Extra.HTML());
 
       // To staff
       middleware.msg(cache.config.staffchat_id, ticketMsg(ticket.id, ctx.message, cache.config.anonymous_tickets, autoReplyInfo),
       Extra.HTML());
-      
+
       // Check if group flag is set and is not admin chat
       if (ctx.session.group !== undefined &&
         ctx.session.group != cache.config.staffchat_id) {
@@ -93,7 +93,7 @@ function chat(ctx, bot, chat) {
                 'text': cache.config.language.replyPrivate,
                 'callback_data': ctx.from.id +
                 '---' + ctx.message.from.first_name + '---' + ctx.session.groupCategory +
-                '---' + ticket.id 
+                '---' + ticket.id
               }
             ],
           ],
@@ -113,7 +113,7 @@ function chat(ctx, bot, chat) {
   } else if (cache.ticketSent[cache.ticketID] < 4) {
     cache.ticketSent[cache.ticketID]++;
     db.getOpen(cache.ticketID, ctx.session.groupCategory, function(ticket) {
-      middleware.msg(cache.config.staffchat_id, 
+      middleware.msg(cache.config.staffchat_id,
         ticketMsg(ticket.id, ctx.message, cache.config.anonymous_tickets, autoReplyInfo),
         Extra.HTML());
       if (ctx.session.group !== undefined) {
@@ -124,7 +124,7 @@ function chat(ctx, bot, chat) {
   } else if (cache.ticketSent[cache.ticketID] === 4) {
     cache.ticketSent[cache.ticketID]++;
     // eslint-disable-next-line new-cap
-    
+
     middleware.msg(chat.id, cache.config.language.blockedSpam, Extra.HTML());
   }
   db.getOpen(cache.ticketID, ctx.session.groupCategory, function(ticket) {

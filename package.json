@@ -16,7 +16,7 @@
     "scripts": {
         "tsc": "tsc",
         "dev": "ts-node-dev ./src/index.ts",
-        "prod": "tsc && cp -r ./src/addons/web/* ./build/src/addons/web && node ./build/src/index.js",
+        "start": "tsc && cp -r ./src/addons/web/* ./build/src/addons/web && node ./build/src/index.js",
         "release": "npx release-it"
     },
     "engines": {

@@ -13,4 +13,4 @@ RUN yarn --frozen-lockfile && \
 
 EXPOSE 8080
 
-CMD ["yarn", "prod", "--prefix", "/app"]
+CMD ["yarn", "start", "--prefix", "/app"]

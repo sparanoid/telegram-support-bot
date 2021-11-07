@@ -1,10 +1,10 @@
-version: '3'
+version: "3"
 services:
   supportbot:
     build: .
-    # image: "sparanoid/telegram-support-bot:latest"
+    # image: sparanoid/telegram-support-bot:latest
     restart: unless-stopped
     volumes:
       - ./config:/app/config
     ports:
-      - "8080:8080"
+      - 8080:8080

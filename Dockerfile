@@ -1,11 +1,16 @@
-FROM node:16-alpine3.11
+FROM node:16-alpine
 
-RUN apk update && \
-    apk add wget python build-base
+ENV NODE_ENV=production
 
-COPY . /bot
-RUN cd bot/ && \
-    npm i && \
-    npm rebuild
+WORKDIR /app
 
-CMD ["npm", "run", "prod", "--prefix", "/bot"]
+COPY . /app
+
+RUN apk add --update --no-cache python3 build-base
+
+RUN yarn --frozen-lockfile && \
+    yarn cache clean
+
+EXPOSE 8080
+
+CMD ["yarn", "prod", "--prefix", "/app"]

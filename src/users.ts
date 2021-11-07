@@ -33,7 +33,10 @@ function autoReply(ctx, bot, chat) {
   for (let i in strings) {
     if (ctx.message.text.toString().indexOf(strings[i][0]) > -1) {
       // Define message
-      let msg = `${cache.config.language.dear} `+
+      let msg = cache.config.compact_reply ?
+        `${middleware.escapeText(strings[i][1])}\n\n`+
+        `<i>${cache.config.language.automatedReply}</i>` :
+        `${cache.config.language.dear} `+
         `${middleware.escapeText(ctx.message.from.first_name)},\n\n`+
         `${middleware.escapeText(strings[i][1])}\n\n`+
         `${cache.config.language.regards}\n`+

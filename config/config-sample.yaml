@@ -18,7 +18,7 @@ web_server_port: 8080 # Port for web server
 web_server_ssl_cert: '../src/web/ssl.crt' # Path for SSL cert
 web_server_ssl_key: '../src/web/ssl.key' # Path for SSL key
 
-compact_reply: true # Only send reply message without `dear` and `regards` template.
+compact_reply: true # Only send reply message without `dear` and `regards` template
 slient_mode: true # Avoid sending `contactMessage` when user sends a message
 
 dev_mode: true # Enable/disable dev mode

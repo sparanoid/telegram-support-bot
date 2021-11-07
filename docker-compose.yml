@@ -2,9 +2,9 @@ version: '3'
 services:
   supportbot:
     build: .
-    #image: "bostrot/telegram-support-bot:latest"
+    # image: "sparanoid/telegram-support-bot:latest"
     restart: unless-stopped
     volumes:
-      - ${PWD}/config:/telegram-support-bot/config
+      - ./config:/app/config
     ports:
       - "8080:8080"

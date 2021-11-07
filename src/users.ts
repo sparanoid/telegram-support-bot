@@ -70,8 +70,8 @@ function chat(ctx, bot, chat) {
     // Get Ticket ID from DB
     db.getOpen(chat.id, ctx.session.groupCategory, function(ticket) {
 
-      if (!isAutoReply)
-        middleware.msg(chat.id, cache.config.slient_mode ? '' : cache.config.language.contactMessage +
+      if (!isAutoReply && !cache.config.slient_mode)
+        middleware.msg(chat.id, cache.config.language.contactMessage +
           (cache.config.show_user_ticket ? cache.config.language.yourTicketId  + ' #T' +
           ticket.id.toString().padStart(6, '0') : ''), Extra.HTML());
 
